@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting Started - mediaichemy</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".expandable").forEach(section => {
+                section.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const subsections = section.nextElementSibling;
+                    if (subsections.style.display === "block") {
+                        subsections.style.display = "none";
+                    } else {
+                        subsections.style.display = "block";
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="sidebar">
@@ -16,6 +31,30 @@
         <a href="workflow-example.html">Workflow Example</a>
         <a href="contributing.html">Contributing</a>
         <a href="license.html">License</a>
+        <a href="#" class="expandable">Examples</a>
+        <ul style="display: none;">
+            <li class="expandable">Single media</li>
+            <ul style="display: none;">
+                <li><a href="#">Text</a></li>
+                <li><a href="#">Video</a></li>
+                <li><a href="#">Image</a></li>
+            </ul>
+            <li class="expandable">Multi media</li>
+            <ul style="display: none;">
+                <li><a href="#">Short video</a></li>
+                <li><a href="#">Long video</a></li>
+                <li><a href="#">Podcast</a></li>
+            </ul>
+        </ul>
+        <a href="#" class="expandable">Registration</a>
+        <ul style="display: none;">
+            <li class="expandable">Providers</li>
+            <ul style="display: none;">
+                <li><a href="#">OpenRouter</a></li>
+                <li><a href="#">Runware</a></li>
+                <li><a href="#">Minimax</a></li>
+            </ul>
+        </ul>
     </div>
     <div class="content">
         <h1>Getting Started</h1>
