@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif; /* Updated font to Segoe UI */
+    color: #555; /* Updated text body to a shade of gray */
+    background-color: #fff;
+    letter-spacing: 0.5px; /* Increased letter spacing for text body */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #fff; /* Sidebar background */
+    position: fixed;
+    height: calc(100% - 40px); /* Adjusted height to account for margins */
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+    margin: 0px; /* Added margin around the sidebar */
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: rgb(89, 0, 255); /* Sidebar title color */
+    font-weight: bold; /* Bold styling */
+    font-family: "Segoe UI", Arial, sans-serif; /* Updated font to Poppins *//* Adjusted font size for better visibility */
+    letter-spacing: 1.3px; 
+    font-weight: 300;
+    text-align: left;   
+    margin-left: 20px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #f8f3ff;
+}
+
+.sidebar a:hover {
+    background-color: #e0e0ff;
+    color: rgb(111, 0, 255); /* Sidebar link hover color */
+}
+
+.content {
+    
+    margin-left: 280px; /* Increased margin to account for sidebar mar  gin */
+    padding: 30px; /* Increased padding for the page content */
+    color: #666; /* Updated text body to a lighter shade of gray */
+}
+
+h1 {
+    color: rgba(43, 0, 255, 0.63); /* Updated title color to a darker shade of gray */
+    letter-spacing: 2px;
+    font-weight: 300; /* Adjusted font weight for better visibility */
+}
+
+h2 {
+    color: #343434; /* Updated title color to a darker shade of gray */
+    letter-spacing: 1px;
+    font-weight: 300; /* Adjusted font weight for better visibility */
+}
+
+h3 {
+    color: #565656; /* Updated title color to a darker shade of gray */
+    letter-spacing: 0.5px;
+    font-weight: 300; /* Adjusted font weight for better visibility */
+}
+
+code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;   
+    border-radius: 4px;
+}
+
+strong {
+    color: #343434; /* Ensure bold text is always black */
+    font-weight: bold; /* Ensure bold styling */
+}
