@@ -7,24 +7,72 @@ body {
 }
 
 .sidebar {
-    width: 250px;
+    width: 350px;
     background-color: #fff; /* Sidebar background */
     position: fixed;
-    height: calc(100% - 40px); /* Adjusted height to account for margins */
-    overflow-y: auto;
-    border-right: 1px solid #ddd;
+    height: 100%; /* Extend height to cover the entire page */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    border-right: 1px solid #ddd; /* Sidebar border */
     margin: 0px; /* Added margin around the sidebar */
+    transition: width 0.3s ease; /* Smooth transition for collapsing */
+}
+
+.sidebar.collapsed {
+    width: 60px; /* Keep the sidebar thin when collapsed */
+    overflow: hidden; /* Hide content except for the logo and button */
+    padding: 5px; /* Reduce padding */
+    margin: 0; /* Remove margin */
 }
 
 .sidebar h2 {
-    text-align: center;
-    color: rgb(89, 0, 255); /* Sidebar title color */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the content */
+    justify-content: start; /* Align content to the start */
+    color: rgba(89, 0, 255, 0.66); /* Sidebar title color */
     font-weight: bold; /* Bold styling */
-    font-family: "Segoe UI", Arial, sans-serif; /* Updated font to Poppins *//* Adjusted font size for better visibility */
+    font-family: "Segoe UI", Arial, sans-serif; /* Updated font to Poppins */
     letter-spacing: 1.3px; 
     font-weight: 300;
-    text-align: left;   
-    margin-left: 20px;
+    margin: 0; /* Remove left margin */
+    padding: 20px; /* Add padding for spacing */
+    height: auto; /* Adjust height to fit content */
+    overflow: hidden; /* Hide text when collapsed */
+    transition: opacity 0.3s ease, flex-direction 0.3s ease; /* Smooth transition for text visibility and layout */
+}
+
+.sidebar.collapsed h2 {
+    flex-direction: row; /* Keep logo and text side by side when collapsed */
+    padding: 0px; /* Reduce padding for the header */
+}
+
+.sidebar.collapsed h2 span {
+    opacity: 1; /* Ensure the text remains visible when collapsed */
+    transition: opacity 0.3s ease; /* Smooth transition for text visibility */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.sidebar h2 img {
+    width: auto; /* Default logo size */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Add spacing between the logo and text */
+    transition: transform 0.3s ease, margin 0.3s ease; /* Smooth transition for size and spacing */
+}
+
+.sidebar.collapsed h2 img {
+    transform: scale(0.8); /* Scale the logo to 50% of its original size */
+    margin-right: 0; /* Remove spacing when collapsed */
+}
+
+/* Ensure the "mediaichemy" text is visible */
+.sidebar h2 span {
+    display: inline; /* Ensure text is displayed */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+}
+
+.sidebar-title-text {
+    display: none; /* Remove the bottom "mediaichemy" text */
 }
 
 /* General sidebar link styles */
@@ -34,12 +82,19 @@ body {
     text-decoration: none;
     color: #333;
     border-bottom: 1px solid #f8f3ff;
+    opacity: 1; /* Fully visible when expanded */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+}
+
+.sidebar.collapsed a {
+    opacity: 0; /* Hide links when collapsed */
+    pointer-events: none; /* Disable interaction with hidden links */
 }
 
 /* Hover state for general sidebar links */
 .sidebar a:hover {
     background-color: #e0e0ff;
-    color: rgb(111, 0, 255); /* Sidebar link hover color */
+    color: rgb(89, 0, 255, 0.66); /* Sidebar link hover color */
 }
 
 /* Section links */
@@ -48,18 +103,19 @@ body {
 }
 
 .sidebar > a:hover {
-    color: #4a4a8c;
+    color: rgb(89, 0, 255, 0.66);
 }
 
 /* Subsection links */
 .sidebar .subsection > a {
     font-weight: normal;
-    color: #4700ec;
+    color: rgba(89, 0, 255, 0.552);
     padding-left: 20px; /* Indent for subsections */
+    height: 15px;
 }
 
 .sidebar .subsection > a:hover {
-    color: #000000;
+    color: #4e4e4e;
 }
 
 /* Sub-subsection links */
@@ -67,16 +123,22 @@ body {
     font-weight: lighter;
     color: #555555;
     padding-left: 40px; /* Indent for sub-subsections */
+    padding-top: 10px; /* Reduce top padding */
+    padding-bottom: 10  px; /* Reduce bottom padding */
 }
 
 .sidebar .sub-subsection > div > a:hover {
-    color: #3f00fe;
+    color: rgba(89, 0, 255, 0.464);
 }
 
 .content {
-    margin-left: 280px; /* Increased margin to account for sidebar mar  gin */
+    margin-left: 350px; /* Increased margin to account for sidebar mar  gin */
     padding: 30px; /* Increased padding for the page content */
     color: #666; /* Updated text body to a lighter shade of gray */
+}
+
+.content.sidebar-collapsed {
+    margin-left: 80px; /* Add margin to the content when the sidebar is collapsed */
 }
 
 h1 {
@@ -116,4 +178,25 @@ strong {
 .sub-subsection {
     background-color: #f8f7fd;
     text-indent: 40px; /* Indent subsection text */
+}
+
+.subsection, .sub-subsection {
+    display: none; /* Hide subsections and sub-subsections by default */
+}
+
+.subsection.expanded, .sub-subsection.expanded {
+    display: block; /* Show when expanded */
+}
+
+#sidebar-toggle {
+    position: absolute; /* Position relative to the sidebar */
+    bottom: 20px; /* Place near the bottom of the sidebar */
+    right: 10px; /* Align to the right inside the sidebar */
+    z-index: 1000;
+    background-color: transparent; /* Transparent background */
+    border: none; /* Remove border */
+    color: rgba(89, 0, 255, 0.66); /* Match sidebar color */
+    font-size: 1.5em; /* Increase font size for better visibility */
+    cursor: pointer;
+    padding: 10px; /* Add padding for better click area */
 }

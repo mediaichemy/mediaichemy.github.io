@@ -5,25 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting Started - mediaichemy</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll(".expandable").forEach(section => {
-                section.addEventListener("click", (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-                    const subsections = section.nextElementSibling;
-                    if (subsections.style.display === "block") {
-                        subsections.style.display = "none";
-                    } else {
-                        subsections.style.display = "block";
-                    }
-                });
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="sidebar">
-        <h2>️🧪 mediaichemy</h2>
+        <h2>
+            <img src="imgs/mediaichemy.png" alt="mediaichemy logo" style="height: 3em; vertical-align: middle;">
+            <span class="sidebar-title-text">mediaichemy</span>
+        </h2>
         <a href="index.html">Home</a>
         <a href="getting-started.html">Getting Started</a>
         <a href="#" class="expandable">Examples</a>
@@ -50,6 +38,7 @@
                 <div><a href="#">Minimax</a></div>
             </div>
         </div>
+        <button id="sidebar-toggle"><</button>
     </div>
     <div class="content">
         <h1>Getting Started</h1>
@@ -62,5 +51,28 @@ cd mediaichemy</code></pre>
         <h2>Set Up API Keys</h2>
         <p>Configure API keys for supported providers. See the <a href="register.html">Registering AI Providers</a> section for details.</p>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sidebar = document.querySelector(".sidebar");
+            const content = document.querySelector(".content");
+            const toggleButton = document.getElementById("sidebar-toggle");
+
+            toggleButton.addEventListener("click", () => {
+                sidebar.classList.toggle("collapsed");
+                content.classList.toggle("sidebar-collapsed");
+
+                // Toggle the button text between < and >
+                toggleButton.textContent = sidebar.classList.contains("collapsed") ? ">" : "<";
+            });
+
+            document.querySelectorAll(".expandable").forEach(section => {
+                section.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const subsections = section.nextElementSibling;
+                    subsections.classList.toggle("expanded"); // Toggle the expanded class
+                });
+            });
+        });
+    </script>
 </body>
 </html>
