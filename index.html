@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mediaichemy: AI-Powered Multimedia Content Creation</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/atelier-cave-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
 </head>
 <body>
     <div class="sidebar">
@@ -61,11 +64,11 @@
             <h2 id="getting-started">Getting Started</h2>
             <ol>
                 <li>Clone the repository:
-                    <pre><code class="language-bash">git clone https://github.com/your-repo/mediaichemy.git
+                    <pre class="language-bash"><code>git clone https://github.com/your-repo/mediaichemy.git
 cd mediaichemy</code></pre>
                 </li>
                 <li>Install dependencies:
-                    <pre><code class="language-bash">pip install -e .</code></pre>
+                    <pre class="language-bash"><code>pip install -e .</code></pre>
                 </li>
                 <li>Set up API keys for supported providers (see below).</li>
             </ol>
@@ -90,7 +93,7 @@ cd mediaichemy</code></pre>
             <h2 id="how-to-use-it">How to Use It</h2>
             <h3>Single Media</h3>
             <p>The <code>ai_request</code> function provides a unified interface for generating individual media types (e.g., text, images, videos, or audio) using AI providers.</p>
-            <pre><code class="language-python">from mediaichemy.ai.request import ai_request
+            <pre class="language-python"><code>from mediaichemy.ai.request import ai_request
 
 # Generate an image using a prompt
 image = await ai_request(
@@ -99,12 +102,13 @@ image = await ai_request(
     output_path="output/image.jpg"
 )
 
-print(f"Image saved at: {image.path}")</code></pre>
+print(f"Image saved at: {image.path}")
+</code></pre>
             <p>To see more examples, <a href="https://github.com/your-repo/mediaichemy/wiki">check the full documentation</a>.</p>
 
             <h3>Multimedia</h3>
             <p>The <code>mediaAIChemist</code> class enables seamless workflows for creating complex multimedia content by combining multiple AI-generated media types and applying audio and video edits.</p>
-            <pre><code class="language-python">from mediaichemy import mediaAIChemist
+            <pre class="language-python"><code>from mediaichemy import mediaAIChemist
 
 # Initialize mediaAIChemist for short video creation
 aichemist = mediaAIChemist(content_type="short_video")
@@ -118,7 +122,8 @@ content = aichemist.initialize_content(ideas[0])
 
 # Create the multimedia content
 media = await aichemist.create_content(content)
-print(f"Multimedia content created: {media}")</code></pre>
+print(f"Multimedia content created: {media}")
+</code></pre>
 
             <h2 id="contributing">Contributing</h2>
             <p>Contributions are welcome! Check out our <a href="https://github.com/your-repo/mediaichemy/wiki/Contributing">contribution guidelines</a>.</p>
@@ -139,6 +144,8 @@ print(f"Multimedia content created: {media}")</code></pre>
             <li><a href="#license">License</a></li>
         </ul>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const sidebar = document.querySelector(".sidebar");
@@ -171,6 +178,11 @@ print(f"Multimedia content created: {media}")</code></pre>
                     // Redirect to a search results page with the query as a parameter
                     window.location.href = `search.html?q=${encodeURIComponent(query)}`;
                 }
+            });
+
+            // Initialize Highlight.js
+            document.querySelectorAll("pre code").forEach((block) => {
+                hljs.highlightElement(block);
             });
         });
     </script>
