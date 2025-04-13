@@ -8,25 +8,89 @@
 </head>
 <body>
     <div class="sidebar">
-        <!-- ...existing sidebar code... -->
+        <h2>
+            <img src="imgs/mediaichemy.png" alt="mediaichemy logo" style="height: 3em; vertical-align: middle;">
+            <span class="sidebar-title-text">mediaichemy</span>
+        </h2>
+        <a href="index.html">Home</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="#" class="expandable">Examples</a>
+        <div class="subsection">
+            <a href="#" class="expandable">Single media</a>
+            <div class="sub-subsection">
+                <div><a href="#">Text</a></div>
+                <div><a href="#">Video</a></div>
+                <div><a href="#">Image</a></div>
+            </div>
+            <a href="#" class="expandable">Multi media</a>
+            <div class="sub-subsection">
+                <div><a href="#">Short video</a></div>
+                <div><a href="#">Long video</a></div>
+                <div><a href="#">Podcast</a></div>
+            </div>
+        </div>
+        <a href="#" class="expandable">Registration</a>
+        <div class="subsection">
+            <a href="#" class="expandable">Providers</a>
+            <div class="sub-subsection">
+                <div><a href="#">OpenRouter</a></div>
+                <div><a href="#">Runware</a></div>
+                <div><a href="#">Minimax</a></div>
+            </div>
+        </div>
+        <button id="sidebar-toggle"><</button>
     </div>
     <div class="content">
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search all pages..." />
-            <button id="search-button">Search</button>
+        <div class="page-top-menu">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search" />
+                <button id="search-button">Search</button>
+            </div>
         </div>
-        <h1>Search Results</h1>
-        <div id="results"></div>
+        <div class="page-text">
+            <h1>Search Results</h1>
+            <div id="results"></div>
+        </div>
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const sidebar = document.querySelector(".sidebar");
+            const content = document.querySelector(".content");
+            const toggleButton = document.getElementById("sidebar-toggle");
+
+            toggleButton.addEventListener("click", () => {
+                sidebar.classList.toggle("collapsed");
+                content.classList.toggle("sidebar-collapsed");
+
+                // Toggle the button text between < and >
+                toggleButton.textContent = sidebar.classList.contains("collapsed") ? ">" : "<";
+            });
+
+            document.querySelectorAll(".expandable").forEach(section => {
+                section.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const subsections = section.nextElementSibling;
+                    subsections.classList.toggle("expanded"); // Toggle the expanded class
+                });
+            });
+
+            // Enable new searches from the search bar
+            const searchInput = document.getElementById("search-input");
+            const searchButton = document.getElementById("search-button");
+
+            searchButton.addEventListener("click", () => {
+                const newQuery = searchInput.value.trim().toLowerCase();
+                if (newQuery) {
+                    window.location.href = `search.html?q=${encodeURIComponent(newQuery)}`;
+                }
+            });
+
+            // Handle search results
             const params = new URLSearchParams(window.location.search);
             const query = params.get("q");
-
             const resultsContainer = document.getElementById("results");
 
             if (query) {
-                // Simulate search results (replace with actual search logic)
                 const pages = [
                     { title: "Home", url: "index.html", content: "Welcome to mediaichemy." },
                     { title: "Getting Started", url: "getting-started.html", content: "Learn how to set up mediaichemy." },
@@ -49,17 +113,6 @@
             } else {
                 resultsContainer.innerHTML = "<p>Please enter a search query.</p>";
             }
-
-            // Enable new searches from the search bar
-            const searchInput = document.getElementById("search-input");
-            const searchButton = document.getElementById("search-button");
-
-            searchButton.addEventListener("click", () => {
-                const newQuery = searchInput.value.trim().toLowerCase();
-                if (newQuery) {
-                    window.location.href = `search.html?q=${encodeURIComponent(newQuery)}`;
-                }
-            });
         });
     </script>
 </body>
