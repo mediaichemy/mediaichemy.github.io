@@ -200,3 +200,41 @@ strong {
     cursor: pointer;
     padding: 10px; /* Add padding for better click area */
 }
+
+.search-bar {
+    position: absolute; /* Position it relative to the page */
+    top: 20px; /* Add spacing from the top */
+    right: 20px; /* Align to the right */
+    width: 250px; /* Set a fixed width */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Vertically center the content */
+    background-color: #fff; /* White background */
+    border: 1px solid #ddd; /* Add a border */
+    border-radius: 4px; /* Round the corners */
+    padding: 5px; /* Adjust padding for spacing */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    z-index: 1000; /* Ensure it appears above content */
+    overflow: hidden; /* Prevent content from escaping */
+}
+
+.search-bar input {
+    border: none; /* Remove border */
+    outline: none; /* Remove focus outline */
+    font-size: 0.9em; /* Adjust font size */
+    padding: 5px; /* Add padding inside the input */
+    flex: 1; /* Take up available space */
+    min-width: 0; /* Prevent input from shrinking too much */
+}
+
+.search-bar button {
+    background-color: rgba(148, 86, 255, 0.35); /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round the corners */
+    padding: 3px 6px; /* Reduce padding for a smaller button */
+    font-size: 0.8em; /* Adjust font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    height: 100%; /* Ensure the button height matches the search bar */
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - mediaichemy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <!-- ...existing sidebar code... -->
+    </div>
+    <div class="content">
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search all pages..." />
+            <button id="search-button">Search</button>
+        </div>
+        <h1>Search Results</h1>
+        <div id="results"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get("q");
+
+            const resultsContainer = document.getElementById("results");
+
+            if (query) {
+                // Simulate search results (replace with actual search logic)
+                const pages = [
+                    { title: "Home", url: "index.html", content: "Welcome to mediaichemy." },
+                    { title: "Getting Started", url: "getting-started.html", content: "Learn how to set up mediaichemy." },
+                    { title: "Examples", url: "examples.html", content: "Explore examples of mediaichemy usage." }
+                ];
+
+                const results = pages.filter(page =>
+                    page.title.toLowerCase().includes(query) || page.content.toLowerCase().includes(query)
+                );
+
+                if (results.length > 0) {
+                    results.forEach(result => {
+                        const resultElement = document.createElement("div");
+                        resultElement.innerHTML = `<h2><a href="${result.url}">${result.title}</a></h2><p>${result.content}</p>`;
+                        resultsContainer.appendChild(resultElement);
+                    });
+                } else {
+                    resultsContainer.innerHTML = "<p>No results found.</p>";
+                }
+            } else {
+                resultsContainer.innerHTML = "<p>Please enter a search query.</p>";
+            }
+
+            // Enable new searches from the search bar
+            const searchInput = document.getElementById("search-input");
+            const searchButton = document.getElementById("search-button");
+
+            searchButton.addEventListener("click", () => {
+                const newQuery = searchInput.value.trim().toLowerCase();
+                if (newQuery) {
+                    window.location.href = `search.html?q=${encodeURIComponent(newQuery)}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
