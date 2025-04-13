@@ -27,6 +27,7 @@ body {
     margin-left: 20px;
 }
 
+/* General sidebar link styles */
 .sidebar a {
     display: block;
     padding: 15px;
@@ -35,13 +36,44 @@ body {
     border-bottom: 1px solid #f8f3ff;
 }
 
+/* Hover state for general sidebar links */
 .sidebar a:hover {
     background-color: #e0e0ff;
     color: rgb(111, 0, 255); /* Sidebar link hover color */
 }
 
+/* Section links */
+.sidebar > a {
+    color: #333;
+}
+
+.sidebar > a:hover {
+    color: #4a4a8c;
+}
+
+/* Subsection links */
+.sidebar .subsection > a {
+    font-weight: normal;
+    color: #4700ec;
+    padding-left: 20px; /* Indent for subsections */
+}
+
+.sidebar .subsection > a:hover {
+    color: #000000;
+}
+
+/* Sub-subsection links */
+.sidebar .sub-subsection > div > a {
+    font-weight: lighter;
+    color: #555555;
+    padding-left: 40px; /* Indent for sub-subsections */
+}
+
+.sidebar .sub-subsection > div > a:hover {
+    color: #3f00fe;
+}
+
 .content {
-    
     margin-left: 280px; /* Increased margin to account for sidebar mar  gin */
     padding: 30px; /* Increased padding for the page content */
     color: #666; /* Updated text body to a lighter shade of gray */
@@ -74,4 +106,14 @@ code {
 strong {
     color: #343434; /* Ensure bold text is always black */
     font-weight: bold; /* Ensure bold styling */
+}
+
+.subsection {
+    background-color: #f8f7fd;
+    text-indent: 20px; /* Indent subsection text */
+}
+
+.sub-subsection {
+    background-color: #f8f7fd;
+    text-indent: 40px; /* Indent subsection text */
 }
