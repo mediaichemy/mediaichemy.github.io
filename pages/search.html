@@ -4,38 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results - mediaichemy</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <div class="sidebar">
         <h2>
-            <img src="imgs/mediaichemy.png" alt="mediaichemy logo" style="height: 3em; vertical-align: middle;">
+            <img src="../imgs/mediaichemy.png" alt="mediaichemy logo" style="height: 3em; vertical-align: middle;">
             <span class="sidebar-title-text">mediaichemy</span>
         </h2>
-        <a href="index.html">Home</a>
-        <a href="getting-started.html">Getting Started</a>
-        <a href="#" class="expandable">Examples</a>
+        <a href="../index.html">Home</a>
+        <a href="../getting-started.html">Getting Started</a>
+        <a href="../#" class="expandable">Examples</a>
         <div class="subsection">
-            <a href="#" class="expandable">Single media</a>
+            <a href="../#" class="expandable">Single media</a>
             <div class="sub-subsection">
-                <div><a href="#">Text</a></div>
-                <div><a href="#">Video</a></div>
-                <div><a href="#">Image</a></div>
+                <div><a href="../#">Text</a></div>
+                <div><a href="../#">Video</a></div>
+                <div><a href="../#">Image</a></div>
             </div>
-            <a href="#" class="expandable">Multi media</a>
+            <a href="../#" class="expandable">Multi media</a>
             <div class="sub-subsection">
-                <div><a href="#">Short video</a></div>
-                <div><a href="#">Long video</a></div>
-                <div><a href="#">Podcast</a></div>
+                <div><a href="../#">Short video</a></div>
+                <div><a href="../#">Long video</a></div>
+                <div><a href="../#">Podcast</a></div>
             </div>
         </div>
-        <a href="#" class="expandable">Registration</a>
+        <a href="../#" class="expandable">Registration</a>
         <div class="subsection">
-            <a href="#" class="expandable">Providers</a>
+            <a href="../#" class="expandable">Providers</a>
             <div class="sub-subsection">
-                <div><a href="#">OpenRouter</a></div>
-                <div><a href="#">Runware</a></div>
-                <div><a href="#">Minimax</a></div>
+                <div><a href="../#">OpenRouter</a></div>
+                <div><a href="../#">Runware</a></div>
+                <div><a href="../#">Minimax</a></div>
             </div>
         </div>
         <button id="sidebar-toggle"><</button>
@@ -104,7 +104,7 @@
                 if (results.length > 0) {
                     results.forEach(result => {
                         const resultElement = document.createElement("div");
-                        resultElement.innerHTML = `<h2><a href="${result.url}">${result.title}</a></h2><p>${result.content}</p>`;
+                        resultElement.innerHTML = `<h2><a href="../${result.url}">${result.title}</a></h2><p>${result.content}</p>`;
                         resultsContainer.appendChild(resultElement);
                     });
                 } else {
