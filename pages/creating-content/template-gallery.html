@@ -3,61 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mediaichemy: AI-Powered Multimedia Content Creation</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Getting Started</title>
+    <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/atelier-cave-light.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll("pre code").forEach((block) => {
-                hljs.highlightElement(block);
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="sidebar">
         <h2>
-            <img src="imgs/mediaichemy.png" alt="mediaichemy logo" style="height: 3em; vertical-align: middle;">
+            <img src="../../imgs/mediaichemy.png" alt="mediaichemy logo" style="height: 3em; vertical-align: middle;">
             <span class="sidebar-title-text">mediaichemy</span>
         </h2>
-        <a href="index.html">Home</a>
-        <a href="pages/getting-started.html">Getting started</a>
-        <a href="#" class="expandable">Creating content</a>
-        <div class="subsection">
-            <a href="pages/creating-content/template-gallery.html">Template gallery</a>
-            <a href="#" class="expandable">Single media</a>
+        <a href="../../index.html">Home</a>
+        <a href="../getting-started.html">Getting started</a>
+        <a href="../#" class="expandable">Creating content</a>
+        <div class="subsection expanded">
+            <a href="../creating-content/template-gallery.html">Template gallery</a>
+            <a href="../#" class="expandable">Single media</a>
             <div class="sub-subsection">
-                <div><a href="pages/creating-content/single-media.html">Text</a></div>
-                <div><a href="pages/creating-content/single-media.html">Image</a></div>
-                <div><a href="pages/creating-content/single-media.html">Video</a></div>
-                <div><a href="pages/creating-content/single-media.html">Speech</a></div>
+                <div><a href="../creating-content/single-media.html">Text</a></div>
+                <div><a href="../creating-content/single-media.html">Image</a></div>
+                <div><a href="../creating-content/single-media.html">Video</a></div>
+                <div><a href="../creating-content/single-media.html">Speech</a></div>
             </div>
-            <a href="#" class="expandable">Multi media</a>
+            <a href="../#" class="expandable">Multi media</a>
             <div class="sub-subsection">
-                <div><a href="pages/creating-content/multi-media.html">Short video content</a></div>
+                <div><a href="../creating-content/multi-media.html">Short video content</a></div>
             </div>
         </div>
-        <a href="#" class="expandable">Code</a>
+        <a href="../#" class="expandable">Code</a>
         <div class="subsection">
-            <a href="#" class="expandable">Module 1</a>
+            <a href="../#" class="expandable">Module 1</a>
             <div class="sub-subsection">
-                <div><a href="pages/code/module-1.html">Method 1</a></div>
-                <div><a href="pages/code/module-1.html">Method 2</a></div>
-                <div><a href="pages/code/module-1.html">Method 3</a></div>
+                <div><a href="../code/module-1.html">Method 1</a></div>
+                <div><a href="../code/module-1.html">Method 2</a></div>
+                <div><a href="../code/module-1.html">Method 3</a></div>
             </div>
-            <a href="#" class="expandable">Module 2</a>
+            <a href="../#" class="expandable">Module 2</a>
             <div class="sub-subsection">
-                <div><a href="pages/code/module-2.html">Method 1</a></div>
-                <div><a href="pages/code/module-2.html">Method 2</a></div>
-                <div><a href="pages/code/module-2.html">Method 3</a></div>
+                <div><a href="../code/module-2.html">Method 1</a></div>
+                <div><a href="../code/module-2.html">Method 2</a></div>
+                <div><a href="../code/module-2.html">Method 3</a></div>
             </div>
-            <a href="#" class="expandable">Module 3</a>
+            <a href="../#" class="expandable">Module 3</a>
             <div class="sub-subsection">
-                <div><a href="pages/code/module-3.html">Method 1</a></div>
-                <div><a href="pages/code/module-3.html">Method 2</a></div>
-                <div><a href="pages/code/module-3.html">Method 3</a></div>
+                <div><a href="../code/module-3.html">Method 1</a></div>
+                <div><a href="../code/module-3.html">Method 2</a></div>
+                <div><a href="../code/module-3.html">Method 3</a></div>
             </div>
         </div>
         <button id="sidebar-toggle"><</button>
@@ -70,18 +63,13 @@
             </div>
         </div>
         <div class="page-text">
+            <!-- Blank page-text -->
         </div>
     </div>
     <div class="on-this-page">
         <h3>On this page</h3>
         <ul>
-            <li><a href="#intro">Intro</a></li>
-            <li><a href="#getting-started">Getting Started</a></li>
-            <li><a href="#ai-providers">AI Providers</a></li>
-            <li><a href="#registration">Registration</a></li>
-            <li><a href="#how-to-use-it">How to Use It</a></li>
-            <li><a href="#contributing">Contributing</a></li>
-            <li><a href="#license">License</a></li>
+            <!-- Add links to sections if applicable -->
         </ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -116,7 +104,7 @@
                 const query = searchInput.value.trim().toLowerCase();
                 if (query) {
                     // Redirect to a search results page with the query as a parameter
-                    window.location.href = `pages/search.html?q=${encodeURIComponent(query)}`;
+                    window.location.href = `search.html?q=${encodeURIComponent(query)}`;
                 }
             });
 

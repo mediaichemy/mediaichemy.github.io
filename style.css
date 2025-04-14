@@ -64,21 +64,10 @@ body {
     margin-right: 0; /* Remove spacing when collapsed */
 }
 
-/* Ensure the "mediaichemy" text is visible */
-.sidebar h2 span {
-    display: inline; /* Ensure text is displayed */
-    opacity: 1; /* Fully visible */
-    transition: opacity 0.3s ease; /* Smooth transition for visibility */
-}
-
-.sidebar-title-text {
-    display: none; /* Remove the bottom "mediaichemy" text */
-}
-
 /* General sidebar link styles */
 .sidebar a {
     display: block;
-    padding: 15px;
+    padding: 30px;
     text-decoration: none;
     color: #333;
     border-bottom: 1px solid #f8f3ff;
@@ -133,7 +122,6 @@ body {
 
 .content {
     margin-left: 350px; /* Increased margin to account for sidebar mar  gin */
-    padding: 0px; /* Increased padding for the page content */
     color: #000000bd; /* Updated text body to a lighter shade of gray */
 }
 
@@ -198,7 +186,7 @@ strong {
     color: rgba(89, 0, 255, 0.66); /* Match sidebar color */
     font-size: 1.5em; /* Increase font size for better visibility */
     cursor: pointer;
-    padding: 10px; /* Add padding for better click area */
+    padding: 30px; /* Add padding for better click area */
 }
 
 .page-top-menu {
@@ -207,6 +195,7 @@ strong {
     right: 20px; /* Align to the right */
     width: 250px; /* Set a fixed width */
     z-index: 1000; /* Ensure it appears above content */
+    padding-right: 10px;
 }
 
 .search-bar {

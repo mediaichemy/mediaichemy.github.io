@@ -52,8 +52,18 @@
             </div>
         </div>
         <div class="page-text">
-            <h1>Search Results</h1>
-            <div id="results"></div>
+        </div>
+        <div class="on-this-page">
+            <h3>On this page</h3>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#getting-started">Getting started</a></li>
+                <li><a href="#ai-providers">AI Providers</a></li>
+                <li><a href="#registration">Registration</a></li>
+                <li><a href="#how-to-use-it">How to Use It</a></li>
+                <li><a href="#contributing">Contributing</a></li>
+                <li><a href="#license">License</a></li>
+            </ul>
         </div>
     </div>
     <script>
@@ -89,34 +99,6 @@
                 }
             });
 
-            // Handle search results
-            const params = new URLSearchParams(window.location.search);
-            const query = params.get("q");
-            const resultsContainer = document.getElementById("results");
-
-            if (query) {
-                const pages = [
-                    { title: "Home", url: "index.html", content: "Welcome to mediaichemy." },
-                    { title: "Getting Started", url: "getting-started.html", content: "Learn how to set up mediaichemy." },
-                    { title: "Examples", url: "examples.html", content: "Explore examples of mediaichemy usage." }
-                ];
-
-                const results = pages.filter(page =>
-                    page.title.toLowerCase().includes(query) || page.content.toLowerCase().includes(query)
-                );
-
-                if (results.length > 0) {
-                    results.forEach(result => {
-                        const resultElement = document.createElement("div");
-                        resultElement.innerHTML = `<h2><a href="${result.url}">${result.title}</a></h2><p>${result.content}</p>`;
-                        resultsContainer.appendChild(resultElement);
-                    });
-                } else {
-                    resultsContainer.innerHTML = "<p>No results found.</p>";
-                }
-            } else {
-                resultsContainer.innerHTML = "<p>Please enter a search query.</p>";
-            }
         });
     </script>
 </body>
