@@ -294,6 +294,12 @@ strong {
     color: rgba(89, 0, 255, 0.66); /* Change color on hover */
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping of elements */
+}
+
 @media (max-width: 1080px) {
     .sidebar {
         display: none; /* Hide the sidebar on mobile */
@@ -395,7 +401,7 @@ strong {
     }
 
     .content {
-        margin-top: 8em; /* Adjust for the height of the top menu */
+        margin-top: 2.5em; /* Adjust for the height of the top menu */
         margin-left: 0; /* Remove left margin for full width */
         padding: 1em;
     }
@@ -417,10 +423,62 @@ strong {
         margin-left: auto;
         margin-right: 30px;
     }
+
+    .inside-image {
+        display: block; /* Show inside image on mobile */
+    }
+
+    .outside-image {
+        display: none; /* Hide outside image on mobile */
+    }
+
+    .page-text {
+        margin-left: 0; /* Remove left margin */
+        margin-right: 0; /* Remove right margin */
+        width: 100%; /* Ensure full width */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+}
+
+@media (max-width: 1080px) {
+    .page-text {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: left; /* Center align items */
+    }
+
+    .page-text > div {
+        width: 100%; /* Make the section full width */
+        margin: 0; /* Remove side margins */
+        text-align: left; /* Center text */
+    }
+
+    .inside-image {
+        margin: 0 auto; /* Center the image */
+        display: block; /* Ensure proper centering */
+    }
+
+    .outside-image {
+        display: none; /* Hide the outside image on mobile */
+    }
 }
 
 @media (min-width: 1080px) {
     .top-menu {
         display: none; /* Hide the top menu on desktop screens */
+    }
+
+    .inside-image {
+        display: none; /* Hide inside image on desktop */
+    }
+
+    .outside-image {
+        display: block; /* Show outside image on desktop */
+    }
+
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap; /* Prevent wrapping of elements */
     }
 }
