@@ -233,6 +233,16 @@ strong {
     height: 100%; /* Ensure the button height matches the search bar */
 }
 
+.search-icon {
+    background-color: transparent;
+    border: none;
+    font-size: 1.2em; /* Adjust size for FontAwesome icon */
+    cursor: pointer;
+    color: #828282;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
 .page-text {
     margin-left: 30px;
     margin-right: 250px; /* Add horizontal spacing */
@@ -311,6 +321,7 @@ strong {
         width: 100%;
         padding: 0.5em 1em;
         border-bottom: 1px solid #ddd;
+        position: relative; /* Ensure the search bar is positioned relative to this container */
     }
 
     .menu-toggle {
@@ -321,7 +332,7 @@ strong {
         color: #333;
         margin-bottom: 0.5em;
         margin-left: 0.3em;
-        margin-right: 0.5em; /* Add spacing between the burger symbol and the favicon */
+        margin-right: 5em; /* Add spacing between the burger symbol and the favicon */
     }
 
     .top-menu-favicon {
@@ -365,6 +376,24 @@ strong {
         display: flex; /* Show when expanded */
     }
 
+    #search-bar-container {
+        display: none; /* Hide the search bar by default */
+        position: absolute; /* Position it relative to the top menu */
+        top: 50%; /* Vertically align with the top menu */
+        right: 60px; /* Position it to the left of the search icon */
+        transform: translateY(-50%); /* Center vertically */
+        width: 250px; /* Set a fixed width */
+        background-color: #fff;
+        z-index: 1000;
+        padding: 0.5em 1em;
+        border-radius: 4px; /* Round the corners */
+    }
+
+    #search-bar-container.visible {
+        display: flex; /* Show the search bar when visible */
+        align-items: center; /* Vertically center the content */
+    }
+
     .content {
         margin-top: 8em; /* Adjust for the height of the top menu */
         margin-left: 0; /* Remove left margin for full width */
@@ -376,12 +405,17 @@ strong {
     }
 
     .page-top-menu {
-        position: fixed; /* Fix the search bar to scroll with the page */
-        top: 10px; /* Move it higher to avoid overlapping */
-        right: 20px;
-        width: 250px; /* Set a fixed width */
-        z-index: 1000; /* Ensure it appears above content */
-        padding-right: 10px;
+        display: None;
+    }
+
+    .search-icon {
+        background-color: transparent;
+        border: none;
+        font-size: 1.2em; /* Adjust size for FontAwesome icon */
+        cursor: pointer;
+        color: #828282;
+        margin-left: auto;
+        margin-right: 30px;
     }
 }
 

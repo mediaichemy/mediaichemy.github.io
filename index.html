@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/atelier-cave-light.min.css">
     <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
     <script>
@@ -59,6 +60,18 @@
             menuToggle.addEventListener("click", () => {
                 topMenu.classList.toggle("expanded");
             });
+
+            // Toggle search bar visibility on mobile
+            const searchIcon = document.getElementById("search-icon");
+            const searchBarContainer = document.getElementById("search-bar-container");
+            const mediaichemyText = document.querySelector(".menu-toggle span");
+
+            searchIcon.addEventListener("click", () => {
+                searchBarContainer.classList.toggle("visible");
+                if (mediaichemyText) {
+                    mediaichemyText.style.display = searchBarContainer.classList.contains("visible") ? "none" : "inline";
+                }
+            });
         });
     </script>
 </head>
@@ -67,7 +80,16 @@
     <div class="top-menu">
         <div class="menu-header">
             <img src="imgs/favicon.ico" alt="favicon" class="top-menu-favicon">
-            <button class="menu-toggle">☰</button>
+            <button class="menu-toggle">☰ <span style="font-size: 0.8em; margin-left: 0.3em;">mediaichemy</span></button>
+            <div style="position: absolute; right: 25px">
+                <button class="search-icon" id="search-icon"><i class="fas fa-search" style="color: #9b88ef"></i></button>
+                <div id="search-bar-container">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search" />
+                        <button id="search-button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="menu-items">
             <a href="index.html">Home</a>
@@ -157,12 +179,12 @@
         <button id="sidebar-toggle"><</button>
     </div>
     <div class="content">
-        <div class="page-top-menu">
-            <div class="search-bar">
-                <input type="text" id="search-input" placeholder="Search" />
-                <button id="search-button">Search</button>
+            <div class="page-top-menu">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Search" />
+                    <button id="search-button">Search</button>
+                </div>
             </div>
-        </div>
         <div class="page-text" style="display: flex; align-items: flex-start; justify-content: space-between; margin-top: 0;">
             <div>
                 <div style="display: flex; align-items: center;">
