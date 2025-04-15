@@ -283,3 +283,110 @@ strong {
 .on-this-page ul li a:hover {
     color: rgba(89, 0, 255, 0.66); /* Change color on hover */
 }
+
+@media (max-width: 1080px) {
+    .sidebar {
+        display: none; /* Hide the sidebar on mobile */
+    }
+
+    .top-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .top-menu .menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align items to the left */
+        width: 100%;
+        padding: 0.5em 1em;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .menu-toggle {
+        background-color: transparent;
+        border: none;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: #333;
+        margin-bottom: 0.5em;
+        margin-left: 0.3em;
+        margin-right: 0.5em; /* Add spacing between the burger symbol and the favicon */
+    }
+
+    .top-menu-favicon {
+        height: 30px; /* Adjust size as needed */
+        margin-bottom: 10px;
+    }
+
+    .top-menu .menu-items {
+        display: none; /* Initially hidden */
+        flex-direction: column;
+        width: 100%;
+        line-height: 1.6; /* Improve readability */
+    }
+
+    .top-menu.expanded .menu-items {
+        display: flex; /* Show when expanded */
+    }
+
+    .top-menu a {
+        text-decoration: none;
+        color: #333;
+        padding: 1em;
+        border-bottom: 1px solid #f8f3ff;
+        width: 100%;
+        text-align: left;
+
+    }
+
+    .top-menu a:hover {
+        background-color: #e0e0ff;
+        color: rgba(89, 0, 255, 0.66);
+    }
+
+    .top-menu .subsection, .top-menu .sub-subsection {
+        display: none; /* Hide subsections and sub-subsections by default */
+        flex-direction: column; /* Ensure vertical layout */
+        padding-left: 1em; /* Indent sub-items */
+    }
+
+    .top-menu .subsection.expanded, .top-menu .sub-subsection.expanded {
+        display: flex; /* Show when expanded */
+    }
+
+    .content {
+        margin-top: 8em; /* Adjust for the height of the top menu */
+        margin-left: 0; /* Remove left margin for full width */
+        padding: 1em;
+    }
+
+    .on-this-page {
+        display: none; /* Hide the "On this page" section on small screens */
+    }
+
+    .page-top-menu {
+        position: fixed; /* Fix the search bar to scroll with the page */
+        top: 10px; /* Move it higher to avoid overlapping */
+        right: 20px;
+        width: 250px; /* Set a fixed width */
+        z-index: 1000; /* Ensure it appears above content */
+        padding-right: 10px;
+    }
+}
+
+@media (min-width: 1080px) {
+    .top-menu {
+        display: none; /* Hide the top menu on desktop screens */
+    }
+}

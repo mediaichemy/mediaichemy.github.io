@@ -3,20 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mediaichemy: AI-Powered Multimedia Content Creation</title>
+    <title>mediaichemy: Python AI content creation</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/atelier-cave-light.min.css">
+    <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const sidebar = document.querySelector(".sidebar");
+            const content = document.querySelector(".content");
+            const toggleButton = document.getElementById("sidebar-toggle");
+
+            // Sidebar toggle functionality
+            toggleButton.addEventListener("click", () => {
+                sidebar.classList.toggle("collapsed");
+                content.classList.toggle("sidebar-collapsed");
+
+                // Toggle the button text between < and >
+                toggleButton.textContent = sidebar.classList.contains("collapsed") ? ">" : "<";
+            });
+
+            // Expandable sections for both sidebar and top menu
+            document.querySelectorAll(".expandable").forEach(section => {
+                section.addEventListener("click", (event) => {
+                    event.preventDefault(); // Prevent default link behavior
+                    const subsections = section.nextElementSibling;
+                    if (subsections && (subsections.classList.contains("subsection") || subsections.classList.contains("sub-subsection"))) {
+                        subsections.classList.toggle("expanded"); // Toggle the expanded class
+                    }
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById("search-input");
+            const searchButton = document.getElementById("search-button");
+
+            searchButton.addEventListener("click", () => {
+                const query = searchInput.value.trim().toLowerCase();
+                if (query) {
+                    // Redirect to a search results page with the query as a parameter
+                    window.location.href = `pages/search.html?q=${encodeURIComponent(query)}`;
+                }
+            });
+
+            // Initialize Highlight.js
             document.querySelectorAll("pre code").forEach((block) => {
                 hljs.highlightElement(block);
+            });
+
+            // Top menu toggle functionality
+            const topMenu = document.querySelector(".top-menu");
+            const menuToggle = document.querySelector(".menu-toggle");
+
+            menuToggle.addEventListener("click", () => {
+                topMenu.classList.toggle("expanded");
             });
         });
     </script>
 </head>
 <body>
+    <!-- Top menu for mobile -->
+    <div class="top-menu">
+        <div class="menu-header">
+            <img src="imgs/favicon.ico" alt="favicon" class="top-menu-favicon">
+            <button class="menu-toggle">☰</button>
+        </div>
+        <div class="menu-items">
+            <a href="index.html">Home</a>
+            <a href="pages/getting-started.html">Getting started</a>
+            <a href="#" class="expandable">Creating content</a>
+            <div class="subsection">
+                <a href="pages/creating-content/template-gallery.html">Template gallery</a>
+                <a href="#" class="expandable">Single media</a>
+                <div class="sub-subsection">
+                    <a href="pages/creating-content/single-media.html">Text</a>
+                    <a href="pages/creating-content/single-media.html">Image</a>
+                    <a href="pages/creating-content/single-media.html">Video</a>
+                    <a href="pages/creating-content/single-media.html">Speech</a>
+                </div>
+                <a href="#" class="expandable">Multi media</a>
+                <div class="sub-subsection">
+                    <a href="pages/creating-content/multi-media.html">Short video content</a>
+                </div>
+            </div>
+            <a href="#" class="expandable">Code</a>
+            <div class="subsection">
+                <a href="#" class="expandable">Module 1</a>
+                <div class="sub-subsection">
+                    <a href="pages/code/module-1.html">Method 1</a>
+                    <a href="pages/code/module-1.html">Method 2</a>
+                    <a href="pages/code/module-1.html">Method 3</a>
+                </div>
+                <a href="#" class="expandable">Module 2</a>
+                <div class="sub-subsection">
+                    <a href="pages/code/module-2.html">Method 1</a>
+                    <a href="pages/code/module-2.html">Method 2</a>
+                    <a href="pages/code/module-2.html">Method 3</a>
+                </div>
+                <a href="#" class="expandable">Module 3</a>
+                <div class="sub-subsection">
+                    <a href="pages/code/module-3.html">Method 1</a>
+                    <a href="pages/code/module-3.html">Method 2</a>
+                    <a href="pages/code/module-3.html">Method 3</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="sidebar">
         <h2>
             <img src="imgs/mediaichemy.png" alt="mediaichemy logo" style="height: 3em; vertical-align: middle;">
@@ -78,7 +172,7 @@
                 <a style="font-size: 1em; color: #555;">A Python library for AI powered multimedia content creation</a>
                 <hr style="border: none; border-top: 1px solid #ccc; margin: 1em 0;">
                 <h2 id="examples">Media examples</h2>
-                <a style="font-size: 1em; color: #555;">Here is a little sample of what you can do with <code style="color: rgb(119, 98, 255);">mediaichemy</code>:</a>
+                <a style="font-size: 1em; color: #555;">Here is a little sample of what you can do with <code style="color: rgb(119, 98, 255);">mediaichemy</code></a>
                 </div>
             <img src="imgs/control the machine.png" style="height: 18em; margin-right: 30px;">
         </div>
@@ -107,47 +201,5 @@
             <li><a href="#manifesto">Manifesto</a></li>
         </ul>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sidebar = document.querySelector(".sidebar");
-            const content = document.querySelector(".content");
-            const toggleButton = document.getElementById("sidebar-toggle");
-
-            toggleButton.addEventListener("click", () => {
-                sidebar.classList.toggle("collapsed");
-                content.classList.toggle("sidebar-collapsed");
-
-                // Toggle the button text between < and >
-                toggleButton.textContent = sidebar.classList.contains("collapsed") ? ">" : "<";
-            });
-
-            document.querySelectorAll(".expandable").forEach(section => {
-                section.addEventListener("click", (event) => {
-                    event.preventDefault(); // Prevent default link behavior
-                    const subsections = section.nextElementSibling;
-                    subsections.classList.toggle("expanded"); // Toggle the expanded class
-                });
-            });
-
-            // Search functionality
-            const searchInput = document.getElementById("search-input");
-            const searchButton = document.getElementById("search-button");
-
-            searchButton.addEventListener("click", () => {
-                const query = searchInput.value.trim().toLowerCase();
-                if (query) {
-                    // Redirect to a search results page with the query as a parameter
-                    window.location.href = `pages/search.html?q=${encodeURIComponent(query)}`;
-                }
-            });
-
-            // Initialize Highlight.js
-            document.querySelectorAll("pre code").forEach((block) => {
-                hljs.highlightElement(block);
-            });
-        });
-    </script>
 </body>
 </html>
