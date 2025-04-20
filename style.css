@@ -300,6 +300,16 @@ strong {
     flex-wrap: nowrap; /* Prevent wrapping of elements */
 }
 
+.video-container {
+    display: flex;
+    gap: 1em; /* Add spacing between videos */
+}
+
+.video-container video {
+    width: 50%; /* Ensure each video takes up half the container width */
+    border-radius: 5px; /* Round the corners of the videos */
+}
+
 @media (max-width: 1080px) {
     .sidebar {
         display: none; /* Hide the sidebar on mobile */
